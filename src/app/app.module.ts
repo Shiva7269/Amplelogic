@@ -3,10 +3,12 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OffcanvasPopupComponent } from './offcanvas-popup/offcanvas-popup.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OffcanvasPopupComponent
   ],
   imports: [
     BrowserModule,

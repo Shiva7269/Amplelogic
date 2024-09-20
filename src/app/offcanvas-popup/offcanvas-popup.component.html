@@ -1,0 +1,39 @@
+<!-- Offcanvas Popup -->
+<div class="offcanvas-popup card border-0 shadow-lg d-flex flex-column align-items-start" *ngIf="showOffcanvas">
+  <!-- Offcanvas Header with Icon on the left and Text/Progress aligned to the right -->
+  <div class="d-flex w-100 align-items-center justify-content-between p-3 ">
+    <!-- Icon with its own blue background (10% of the space) -->
+    <div class="d-flex align-items-center justify-content-center text-white" style="width: 10%; background-color: #007bff; ">
+      <i class="bi bi-rocket-fill me-4 fs-3"></i> <!-- Bootstrap icon -->
+    </div>
+  
+    <!-- Text and Progress (90% of the space) -->
+    <div class="d-flex flex-column align-items-end" style="width: 90%;">
+      <!-- Text beside icon -->
+      <span class="text-truncate">Migrating Data to selected environment</span>
+  
+      <!-- Progress Bar and Percentage -->
+      <div class="w-100 d-flex align-items-center mt-2">
+        <div class="progress w-75">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" 
+               role="progressbar" 
+               [style.width.%]="progress" 
+               [attr.aria-valuenow]="progress" 
+               aria-valuemin="0" 
+               aria-valuemax="100"></div>
+        </div>
+        <span class="ms-3">{{progress}}%</span>
+      </div>
+    </div>
+  </div>
+  
+
+  <button *ngIf="showToggleButton" class="btn btn-primary rounded-pill position-absolute top-0 end-0 m-3" (click)="toggleOffcanvas()">
+    <i class="bi bi-chevron-down"></i>
+  </button>
+</div>
+<button class="btn btn-success start-button position-fixed bottom-0 end-0 mb-4 me-4" *ngIf="!hasStarted" (click)="startMigration()">Start</button>
+
+<button *ngIf="showToggleButton && !showOffcanvas" class="btn btn-primary rounded-pill position-fixed bottom-0 end-0 mb-4 me-4" (click)="toggleOffcanvas()">
+  <i class="bi bi-chevron-up"></i>
+</button>
